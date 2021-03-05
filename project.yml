@@ -1,13 +1,13 @@
-name: TmdbAPI
+name: OpenAPIClient
 targets:
-  TmdbAPI:
+  OpenAPIClient:
     type: framework
     platform: iOS
     deploymentTarget: "9.0"
-    sources: [TmdbAPI]
+    sources: [OpenAPIClient]
     info:
       path: ./Info.plist
-      version: 0.0.2
+      version: 0.0.4
     settings:
       APPLICATION_EXTENSION_API_ONLY: true
     scheme: {}

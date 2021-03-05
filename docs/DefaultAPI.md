@@ -18,7 +18,7 @@ Get the list of official genres for movies.
 ### Example 
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import TmdbAPI
+import OpenAPIClient
 
 let apiKey = "apiKey_example" // String | API key for using the service.
 
@@ -66,7 +66,7 @@ Get a list of the current popular movies on TMDb. This list updates daily.
 ### Example 
 ```swift
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import TmdbAPI
+import OpenAPIClient
 
 let apiKey = "apiKey_example" // String | API key for using the service.
 
