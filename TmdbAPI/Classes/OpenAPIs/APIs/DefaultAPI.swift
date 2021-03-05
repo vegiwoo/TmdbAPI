@@ -15,7 +15,7 @@ open class DefaultAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func genreMovieListGet(apiKey: String, apiResponseQueue: DispatchQueue = TmdbAPIAPI.apiResponseQueue, completion: @escaping ((_ data: InlineResponse2001?, _ error: Error?) -> Void)) {
+    open class func genreMovieListGet(apiKey: String, apiResponseQueue: DispatchQueue = TmdbAPIAPI.apiResponseQueue, completion: @escaping ((_ data: [Genre]?, _ error: Error?) -> Void)) {
         genreMovieListGetWithRequestBuilder(apiKey: apiKey).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -30,9 +30,9 @@ open class DefaultAPI {
      Get the list of official genres for movies.
      - GET /genre/movie/list
      - parameter apiKey: (query) API key for using the service. 
-     - returns: RequestBuilder<InlineResponse2001> 
+     - returns: RequestBuilder<[Genre]> 
      */
-    open class func genreMovieListGetWithRequestBuilder(apiKey: String) -> RequestBuilder<InlineResponse2001> {
+    open class func genreMovieListGetWithRequestBuilder(apiKey: String) -> RequestBuilder<[Genre]> {
         let path = "/genre/movie/list"
         let URLString = TmdbAPIAPI.basePath + path
         let parameters: [String: Any]? = nil
@@ -48,7 +48,7 @@ open class DefaultAPI {
 
         let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
-        let requestBuilder: RequestBuilder<InlineResponse2001>.Type = TmdbAPIAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<[Genre]>.Type = TmdbAPIAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
