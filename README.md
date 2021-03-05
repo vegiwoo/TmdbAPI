@@ -1,4 +1,4 @@
-# Swift5 API client for OpenAPIClient
+# Swift5 API client for TmdbAPI
 
 Developed as part of the 'Move to Movies' educational project on the \"iOS Developer professional\" course on the educational platform [Otus](https://otus.ru)
 
