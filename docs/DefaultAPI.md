@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 # **genreMovieListGet**
 ```swift
-    open class func genreMovieListGet(apiKey: String, completion: @escaping (_ data: [Genre]?, _ error: Error?) -> Void)
+    open class func genreMovieListGet(apiKey: String, completion: @escaping (_ data: InlineResponse2001?, _ error: Error?) -> Void)
 ```
 
 Get the list of official genres for movies.
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[Genre]**](Genre.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 

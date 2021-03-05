@@ -9,10 +9,10 @@ import Foundation
 
 public struct InlineResponse2001: Codable {
 
-    public var gernes: [InlineResponse2001Gernes]?
+    public var genres: [Genre]?
 
-    public init(gernes: [InlineResponse2001Gernes]? = nil) {
-        self.gernes = gernes
+    public init(genres: [Genre]? = nil) {
+        self.genres = genres
     }
 
 }
