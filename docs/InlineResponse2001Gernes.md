@@ -1,9 +1,10 @@
-# InlineResponse2001
+# InlineResponse2001Gernes
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**gernes** | [InlineResponse2001Gernes] |  | [optional] 
+**name** | **String** |  | [optional] 
+**id** | **Int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

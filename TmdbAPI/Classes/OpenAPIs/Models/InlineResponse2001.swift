@@ -9,9 +9,9 @@ import Foundation
 
 public struct InlineResponse2001: Codable {
 
-    public var gernes: [Genre]?
+    public var gernes: [InlineResponse2001Gernes]?
 
-    public init(gernes: [Genre]? = nil) {
+    public init(gernes: [InlineResponse2001Gernes]? = nil) {
         self.gernes = gernes
     }
 

@@ -36,6 +36,7 @@ Class | Method | HTTP request | Description
  - [Genre](docs/Genre.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse2001](docs/InlineResponse2001.md)
+ - [InlineResponse2001Gernes](docs/InlineResponse2001Gernes.md)
  - [InlineResponse401](docs/InlineResponse401.md)
  - [Movie](docs/Movie.md)
  - [MovieListResultObject](docs/MovieListResultObject.md)
