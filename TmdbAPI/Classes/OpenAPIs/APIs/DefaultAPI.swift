@@ -56,13 +56,13 @@ open class DefaultAPI {
     /**
      Get the primary information about a movie.
      
-     - parameter apiKey: (query) API key for using the service. 
      - parameter movieId: (path) The movie ID. 
+     - parameter apiKey: (query) API key for using the service. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func movieMovieIdGet(apiKey: String, movieId: Int, apiResponseQueue: DispatchQueue = TmdbAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Movie?, _ error: Error?) -> Void)) {
-        movieMovieIdGetWithRequestBuilder(apiKey: apiKey, movieId: movieId).execute(apiResponseQueue) { result -> Void in
+    open class func movieMovieIdGet(movieId: Int, apiKey: String, apiResponseQueue: DispatchQueue = TmdbAPIAPI.apiResponseQueue, completion: @escaping ((_ data: Movie?, _ error: Error?) -> Void)) {
+        movieMovieIdGetWithRequestBuilder(movieId: movieId, apiKey: apiKey).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -75,11 +75,11 @@ open class DefaultAPI {
     /**
      Get the primary information about a movie.
      - GET /movie/{movie_id}
-     - parameter apiKey: (query) API key for using the service. 
      - parameter movieId: (path) The movie ID. 
+     - parameter apiKey: (query) API key for using the service. 
      - returns: RequestBuilder<Movie> 
      */
-    open class func movieMovieIdGetWithRequestBuilder(apiKey: String, movieId: Int) -> RequestBuilder<Movie> {
+    open class func movieMovieIdGetWithRequestBuilder(movieId: Int, apiKey: String) -> RequestBuilder<Movie> {
         var path = "/movie/{movie_id}"
         let movieIdPreEscape = "\(APIHelper.mapValueToPathItem(movieId))"
         let movieIdPostEscape = movieIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
