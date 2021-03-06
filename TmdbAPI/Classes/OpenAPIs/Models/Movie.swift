@@ -32,7 +32,7 @@ public struct Movie: Codable {
     public var posterPath: String?
     public var productionCompanies: [ProductionCompany]?
     public var productionCountries: [ProductionCountry]?
-    public var releaseDate: Date?
+    public var releaseDate: String?
     public var revenue: Int?
     public var runtime: Int?
     public var spokenLanguages: [SpokenLanguage]?
@@ -43,7 +43,7 @@ public struct Movie: Codable {
     public var voteAverage: Double?
     public var voteCount: Int?
 
-    public init(adult: Bool? = nil, backdropPath: String? = nil, belongsToCollection: [String: Collection]? = nil, budget: Int? = nil, genres: [Genre]? = nil, homepage: String? = nil, id: Int? = nil, imdbId: String? = nil, originalLanguage: String? = nil, originalTitle: String? = nil, overview: String? = nil, popularity: Double? = nil, posterPath: String? = nil, productionCompanies: [ProductionCompany]? = nil, productionCountries: [ProductionCountry]? = nil, releaseDate: Date? = nil, revenue: Int? = nil, runtime: Int? = nil, spokenLanguages: [SpokenLanguage]? = nil, status: Status? = nil, tagline: String? = nil, title: String? = nil, video: Bool? = nil, voteAverage: Double? = nil, voteCount: Int? = nil) {
+    public init(adult: Bool? = nil, backdropPath: String? = nil, belongsToCollection: [String: Collection]? = nil, budget: Int? = nil, genres: [Genre]? = nil, homepage: String? = nil, id: Int? = nil, imdbId: String? = nil, originalLanguage: String? = nil, originalTitle: String? = nil, overview: String? = nil, popularity: Double? = nil, posterPath: String? = nil, productionCompanies: [ProductionCompany]? = nil, productionCountries: [ProductionCountry]? = nil, releaseDate: String? = nil, revenue: Int? = nil, runtime: Int? = nil, spokenLanguages: [SpokenLanguage]? = nil, status: Status? = nil, tagline: String? = nil, title: String? = nil, video: Bool? = nil, voteAverage: Double? = nil, voteCount: Int? = nil) {
         self.adult = adult
         self.backdropPath = backdropPath
         self.belongsToCollection = belongsToCollection

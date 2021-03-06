@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **posterPath** | **String** |  | [optional] 
 **productionCompanies** | [ProductionCompany] |  | [optional] 
 **productionCountries** | [ProductionCountry] |  | [optional] 
-**releaseDate** | **Date** |  | [optional] 
+**releaseDate** | **String** |  | [optional] 
 **revenue** | **Int** |  | [optional] 
 **runtime** | **Int** |  | [optional] 
 **spokenLanguages** | [SpokenLanguage] |  | [optional] 
