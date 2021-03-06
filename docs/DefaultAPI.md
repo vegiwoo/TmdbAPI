@@ -59,7 +59,7 @@ No authorization required
 
 # **movieMovieIdGet**
 ```swift
-    open class func movieMovieIdGet(movieId: Int, apiKey: String, completion: @escaping (_ data: InlineResponse2002?, _ error: Error?) -> Void)
+    open class func movieMovieIdGet(apiKey: String, movieId: Int, completion: @escaping (_ data: Movie?, _ error: Error?) -> Void)
 ```
 
 Get the primary information about a movie.
@@ -69,11 +69,11 @@ Get the primary information about a movie.
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import TmdbAPI
 
-let movieId = 987 // Int | The movie ID
 let apiKey = "apiKey_example" // String | API key for using the service.
+let movieId = 987 // Int | The movie ID.
 
 // Get the primary information about a movie.
-DefaultAPI.movieMovieIdGet(movieId: movieId, apiKey: apiKey) { (response, error) in
+DefaultAPI.movieMovieIdGet(apiKey: apiKey, movieId: movieId) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -89,12 +89,12 @@ DefaultAPI.movieMovieIdGet(movieId: movieId, apiKey: apiKey) { (response, error)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **movieId** | **Int** | The movie ID | 
  **apiKey** | **String** | API key for using the service. | 
+ **movieId** | **Int** | The movie ID. | 
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**Movie**](Movie.md)
 
 ### Authorization
 
