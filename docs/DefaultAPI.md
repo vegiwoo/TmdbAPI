@@ -158,7 +158,7 @@ No authorization required
 
 # **tPImageSizePosterPathGet**
 ```swift
-    open class func tPImageSizePosterPathGet(imageSize: ImageSize_tPImageSizePosterPathGet, posterPath: String, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
+    open class func tPImageSizePosterPathGet(imageSize: ImageSize_tPImageSizePosterPathGet, posterPath: String, apiKey: String, completion: @escaping (_ data: URL?, _ error: Error?) -> Void)
 ```
 
 Get a movie poster.
@@ -169,10 +169,11 @@ Get a movie poster.
 import TmdbAPI
 
 let imageSize = "imageSize_example" // String | Specifies width of poster in pixels.
-let posterPath = "posterPath_example" // String | Specifies poster_path of poster
+let posterPath = "posterPath_example" // String | Specifies path of poster
+let apiKey = "apiKey_example" // String | API key for using the service.
 
 // Get a movie poster.
-DefaultAPI.tPImageSizePosterPathGet(imageSize: imageSize, posterPath: posterPath) { (response, error) in
+DefaultAPI.tPImageSizePosterPathGet(imageSize: imageSize, posterPath: posterPath, apiKey: apiKey) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -189,7 +190,8 @@ DefaultAPI.tPImageSizePosterPathGet(imageSize: imageSize, posterPath: posterPath
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **imageSize** | **String** | Specifies width of poster in pixels. | 
- **posterPath** | **String** | Specifies poster_path of poster | 
+ **posterPath** | **String** | Specifies path of poster | 
+ **apiKey** | **String** | API key for using the service. | 
 
 ### Return type
 

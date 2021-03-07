@@ -165,12 +165,13 @@ open class DefaultAPI {
      Get a movie poster.
      
      - parameter imageSize: (path) Specifies width of poster in pixels. 
-     - parameter posterPath: (path) Specifies poster_path of poster 
+     - parameter posterPath: (path) Specifies path of poster 
+     - parameter apiKey: (query) API key for using the service. 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func tPImageSizePosterPathGet(imageSize: ImageSize_tPImageSizePosterPathGet, posterPath: String, apiResponseQueue: DispatchQueue = TmdbAPIAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) {
-        tPImageSizePosterPathGetWithRequestBuilder(imageSize: imageSize, posterPath: posterPath).execute(apiResponseQueue) { result -> Void in
+    open class func tPImageSizePosterPathGet(imageSize: ImageSize_tPImageSizePosterPathGet, posterPath: String, apiKey: String, apiResponseQueue: DispatchQueue = TmdbAPIAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) {
+        tPImageSizePosterPathGetWithRequestBuilder(imageSize: imageSize, posterPath: posterPath, apiKey: apiKey).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -184,10 +185,11 @@ open class DefaultAPI {
      Get a movie poster.
      - GET /t/p/{image_size}/{poster_path}
      - parameter imageSize: (path) Specifies width of poster in pixels. 
-     - parameter posterPath: (path) Specifies poster_path of poster 
+     - parameter posterPath: (path) Specifies path of poster 
+     - parameter apiKey: (query) API key for using the service. 
      - returns: RequestBuilder<URL> 
      */
-    open class func tPImageSizePosterPathGetWithRequestBuilder(imageSize: ImageSize_tPImageSizePosterPathGet, posterPath: String) -> RequestBuilder<URL> {
+    open class func tPImageSizePosterPathGetWithRequestBuilder(imageSize: ImageSize_tPImageSizePosterPathGet, posterPath: String, apiKey: String) -> RequestBuilder<URL> {
         var path = "/t/p/{image_size}/{poster_path}"
         let imageSizePreEscape = "\(imageSize.rawValue)"
         let imageSizePostEscape = imageSizePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -198,7 +200,10 @@ open class DefaultAPI {
         let URLString = TmdbAPIAPI.basePath + path
         let parameters: [String: Any]? = nil
 
-        let url = URLComponents(string: URLString)
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
+            "api_key": apiKey.encodeToJSON(),
+        ])
 
         let nillableHeaders: [String: Any?] = [
             :
