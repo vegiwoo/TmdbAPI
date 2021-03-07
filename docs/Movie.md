@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **adult** | **Bool** |  | [optional] 
 **backdropPath** | **String** |  | [optional] 
-**belongsToCollection** | [String: Collection] |  | [optional] 
+**belongsToCollection** | [**MovieBelongsToCollection**](MovieBelongsToCollection.md) |  | [optional] 
 **budget** | **Int** |  | [optional] 
 **genres** | [Genre] |  | [optional] 
 **homepage** | **String** |  | [optional] 
