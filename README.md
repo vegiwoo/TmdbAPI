@@ -29,6 +29,7 @@ Class | Method | HTTP request | Description
 *DefaultAPI* | [**genreMovieListGet**](docs/DefaultAPI.md#genremovielistget) | **GET** /genre/movie/list | Get the list of official genres for movies.
 *DefaultAPI* | [**movieMovieIdGet**](docs/DefaultAPI.md#moviemovieidget) | **GET** /movie/{movie_id} | Get the primary information about a movie.
 *DefaultAPI* | [**moviePopularGet**](docs/DefaultAPI.md#moviepopularget) | **GET** /movie/popular | Get a list of the current popular movies on TMDb. This list updates daily.
+*DefaultAPI* | [**tPImageSizePosterPathGet**](docs/DefaultAPI.md#tpimagesizeposterpathget) | **GET** /t/p/{image_size}/{poster_path} | Get a movie poster.
 
 
 ## Documentation For Models

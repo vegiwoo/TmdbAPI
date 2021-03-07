@@ -148,4 +148,67 @@ open class DefaultAPI {
         return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
+    /**
+     * enum for parameter imageSize
+     */
+    public enum ImageSize_tPImageSizePosterPathGet: String, CaseIterable {
+        case w92 = "w92"
+        case w154 = "w154"
+        case w185 = "w185"
+        case w342 = "w342"
+        case w500 = "w500"
+        case w780 = "w780"
+        case original = "original"
+    }
+
+    /**
+     Get a movie poster.
+     
+     - parameter imageSize: (path) Specifies width of poster in pixels. 
+     - parameter posterPath: (path) Specifies poster_path of poster 
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func tPImageSizePosterPathGet(imageSize: ImageSize_tPImageSizePosterPathGet, posterPath: String, apiResponseQueue: DispatchQueue = TmdbAPIAPI.apiResponseQueue, completion: @escaping ((_ data: URL?, _ error: Error?) -> Void)) {
+        tPImageSizePosterPathGetWithRequestBuilder(imageSize: imageSize, posterPath: posterPath).execute(apiResponseQueue) { result -> Void in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Get a movie poster.
+     - GET /t/p/{image_size}/{poster_path}
+     - parameter imageSize: (path) Specifies width of poster in pixels. 
+     - parameter posterPath: (path) Specifies poster_path of poster 
+     - returns: RequestBuilder<URL> 
+     */
+    open class func tPImageSizePosterPathGetWithRequestBuilder(imageSize: ImageSize_tPImageSizePosterPathGet, posterPath: String) -> RequestBuilder<URL> {
+        var path = "/t/p/{image_size}/{poster_path}"
+        let imageSizePreEscape = "\(imageSize.rawValue)"
+        let imageSizePostEscape = imageSizePreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{image_size}", with: imageSizePostEscape, options: .literal, range: nil)
+        let posterPathPreEscape = "\(APIHelper.mapValueToPathItem(posterPath))"
+        let posterPathPostEscape = posterPathPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{poster_path}", with: posterPathPostEscape, options: .literal, range: nil)
+        let URLString = TmdbAPIAPI.basePath + path
+        let parameters: [String: Any]? = nil
+
+        let url = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
+
+        let requestBuilder: RequestBuilder<URL>.Type = TmdbAPIAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, headers: headerParameters)
+    }
+
 }
